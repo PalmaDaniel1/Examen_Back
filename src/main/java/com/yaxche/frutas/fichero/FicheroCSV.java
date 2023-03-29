@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import com.yaxche.frutas.model.Frutas;
 import com.yaxche.frutas.services.FrutaService;
 
@@ -60,7 +57,8 @@ public class FicheroCSV {
 		 try {
 			 fr = new FileReader(this.nombrecsv);
 			 String linea = "";
-			 BufferedReader br = new BufferedReader(fr);
+			 @SuppressWarnings("resource")
+			BufferedReader br = new BufferedReader(fr);
 			 while((linea = br.readLine()) != null) {
 				 String[] datoslinea = linea.split(",");
 				 Integer idfruta = Integer.valueOf(datoslinea[0].trim());
