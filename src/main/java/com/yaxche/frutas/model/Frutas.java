@@ -54,9 +54,7 @@ public class Frutas implements Serializable{
 	}
 	
 	public Frutas() {
-
 	}
-	
 
 /*	
 	@Override
@@ -87,12 +85,4 @@ public class Frutas implements Serializable{
 		return true;
 	}
 	*/
-	 
-	
-	
-	
-	
-
-	
-
 }

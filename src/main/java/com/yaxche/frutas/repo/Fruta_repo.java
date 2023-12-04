@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import com.yaxche.frutas.model.Frutas;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface Fruta_repo extends CrudRepository<Frutas, Integer>{
 	List<Frutas>findAll();
 	@SuppressWarnings("unchecked")

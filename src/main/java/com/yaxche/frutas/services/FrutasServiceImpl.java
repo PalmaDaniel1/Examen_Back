@@ -34,7 +34,6 @@ public class FrutasServiceImpl implements FrutaService {
 	@Override
 	public Frutas listByClave(String clave) {
 		// TODO Auto-generated method stub
-		
 		return repo.findByClave(clave);
 	}
 
@@ -56,6 +55,4 @@ public class FrutasServiceImpl implements FrutaService {
 		Frutas fru = repo.findByClave(c);
 		return fru;
 	}
-
-
 }

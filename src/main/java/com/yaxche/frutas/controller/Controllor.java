@@ -26,7 +26,7 @@ import com.yaxche.frutas.services.FrutaService;
 
 @RestController
 @CrossOrigin(origins= "http://localhost:4200", maxAge = 3600)
-@RequestMapping({"/frutas"})
+@RequestMapping(path = {"/frutas"})
 public class Controllor {
 	
 	@Autowired
@@ -35,25 +35,25 @@ public class Controllor {
 	//private String nombrecsv;
 
 	
-	@GetMapping("/listar")
+	@GetMapping(path = "/listar")
 	public List<Frutas>listar(){
 		return service.listar();
 	}
 	
-	@GetMapping("/buscar/{clave}")
+	@GetMapping(path = "/buscar/{clave}")
 	public Frutas buscarFrutas(@PathVariable(value = "clave") String clave) {
 		Frutas fru = service.buscarClave(clave);
 		return fru;
 	}
 	
-	@PostMapping("/agregar")
+	@PostMapping(path = "/agregar")
 	public Frutas agregar(@RequestBody Frutas f) {
 		return service.agregar(f);
 	}
 	
 
-	@PatchMapping(value = "/actualizar/{clave}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Frutas actualizar(@PathVariable String clave, @RequestBody Map<Object, Object> fields) {
+	@PatchMapping(path = "/actualizar/{clave}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Frutas actualizar(@PathVariable(value = "clave") String clave, @RequestBody Map<Object, Object> fields) {
 		Frutas re = buscarFrutas(clave);
 		fields.forEach((k,v) -> {
 			Field field  =  ReflectionUtils.findField(Frutas.class, k.toString());
